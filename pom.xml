@@ -4,7 +4,7 @@
 
     <groupId>no.nav.oebs</groupId>
     <artifactId>oebs-fullmakt-godkjenning-api</artifactId>
-    <version>0.0.5</version>
+    <version>0.0.6</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -119,6 +119,13 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Test dependencies -->
