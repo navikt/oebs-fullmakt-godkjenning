@@ -37,8 +37,6 @@ public class FullmaktController {
             @RequestParam(name = "minBelopsgrense", required = false)
             @Parameter(description = "f.eks. 25000") Integer minBelopsgrense,
             @RequestHeader(name = "Authorization") String authorizationHeader) {
-        logger.info("******");
-        logger.info("Authorization header: " + authorizationHeader);
         // Fulmakter hentes fra Fullmaktregister
         return fullmaktservice.hentFullmaktService(segmentverdi, segment, minBelopsgrense, authorizationHeader);
     }
