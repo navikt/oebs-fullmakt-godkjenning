@@ -42,7 +42,7 @@ jobs:
         if: startsWith(github.ref, 'refs/heads/dev/t1')  || github.ref == 'refs/heads/main'
         uses: nais/deploy/actions/deploy@v2
         env:
-          CLUSTER: dev-gcp
+          CLUSTER: dev-fss
           RESOURCE: .nais/nais-t1.yaml
           IMAGE: ${{ steps.docker-push.outputs.image }}
 
@@ -50,7 +50,7 @@ jobs:
         if: startsWith(github.ref, 'refs/heads/dev/q1')  || github.ref == 'refs/heads/main'
         uses: nais/deploy/actions/deploy@v2
         env:
-          CLUSTER: dev-gcp
+          CLUSTER: dev-fss
           RESOURCE: .nais/nais-q1.yaml
           IMAGE: ${{ steps.docker-push.outputs.image }}
 
@@ -58,6 +58,6 @@ jobs:
         if: startsWith(github.ref, 'refs/heads/main')
         uses: nais/deploy/actions/deploy@v2
         env:
-          CLUSTER: prod-gcp
+          CLUSTER: prod-fss
           RESOURCE: .nais/nais-p.yaml
           IMAGE: ${{ steps.docker-push.outputs.image }}
