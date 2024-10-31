@@ -39,7 +39,7 @@ jobs:
           salsa: true
 
       - name: Deploy to NAIS (T1)
-        if: github.ref_name == 'dev/t1-oebs-fullmakt-godkjenning-api'
+        if: startsWith(github.ref, 'refs/heads/dev/t1')  || github.ref == 'refs/heads/main'
         uses: nais/deploy/actions/deploy@v2
         env:
           CLUSTER: dev-fss
