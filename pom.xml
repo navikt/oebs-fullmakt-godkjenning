@@ -9,13 +9,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.5</version>
+        <version>3.3.2</version>
         <relativePath/>
     </parent>
 
     <properties>
         <java.version>18</java.version>
-        <jakarta-servlet.version>5.0.0</jakarta-servlet.version>
+        <jakarta-servlet.version>6.0.0</jakarta-servlet.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
