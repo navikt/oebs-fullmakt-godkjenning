@@ -1,4 +1,4 @@
-FROM navikt/java:18
+FROM ghcr.io/navikt/baseimages/temurin:18
 
 WORKDIR /app
 
