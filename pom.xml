@@ -28,7 +28,7 @@
         <springdoc-openapi.version>1.6.12</springdoc-openapi.version>
         <sonar-maven-plugin.version>3.9.1.2184</sonar-maven-plugin.version>
         <springdoc-openapi-starter-webmvc-ui.version>2.2.0</springdoc-openapi-starter-webmvc-ui.version>
-        <jetty-reactive-httpclient.version>12.0.15</jetty-reactive-httpclient.version>
+        <jetty-reactive-httpclient.version>4.0.8</jetty-reactive-httpclient.version>
 
     </properties>
 
