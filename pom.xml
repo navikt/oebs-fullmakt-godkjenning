@@ -9,13 +9,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.0</version>
+        <version>3.4.0</version>
         <relativePath/>
     </parent>
 
     <properties>
         <java.version>18</java.version>
-        <jakarta-servlet.version>5.0.0</jakarta-servlet.version>
+        <jakarta-servlet.version>6.0.0</jakarta-servlet.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -27,7 +27,9 @@
         <nimbus-jose-jwt.version>9.25.6</nimbus-jose-jwt.version>
         <springdoc-openapi.version>1.6.12</springdoc-openapi.version>
         <sonar-maven-plugin.version>3.9.1.2184</sonar-maven-plugin.version>
-        <springdoc-openapi-starter-webmvc-ui.version>2.2.0</springdoc-openapi-starter-webmvc-ui.version>
+        <springdoc-openapi-starter-webmvc-ui.version>2.7.0</springdoc-openapi-starter-webmvc-ui.version>
+        <jetty-reactive-httpclient.version>4.0.8</jetty-reactive-httpclient.version>
+
     </properties>
 
     <dependencies>
@@ -123,6 +125,7 @@
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-reactive-httpclient</artifactId>
+            <version>${jetty-reactive-httpclient.version}</version>
         </dependency>
 
         <!-- Commons -->
