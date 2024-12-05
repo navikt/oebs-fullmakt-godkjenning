@@ -4,7 +4,7 @@
 
     <groupId>no.nav.oebs</groupId>
     <artifactId>oebs-fullmakt-godkjenning-api</artifactId>
-    <version>0.0.4</version>
+    <version>0.0.7</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
