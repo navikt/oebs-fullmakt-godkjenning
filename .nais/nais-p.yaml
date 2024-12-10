@@ -19,7 +19,7 @@ spec:
   readiness:
     path: /internal/isready
     initialDelay: 60
-    timeout: 10
+    timeout: 11
   resources:
     requests:
       cpu: 400m
