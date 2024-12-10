@@ -1,7 +1,7 @@
 apiVersion: nais.io/v1alpha1
 kind: Application
 metadata:
-  name: oebs-fullmakt-dev
+  name: oebs-fullmakt-godkjenning-api-q1
   namespace: team-oebs
   labels:
     team: team-oebs
@@ -9,8 +9,8 @@ spec:
   image: {{ image }}
   port: 8080
   replicas:
-    min: 2
-    max: 2
+    min: 1
+    max: 1
     cpuThresholdPercentage: 50
   liveness:
     path: /internal/isalive
@@ -42,4 +42,4 @@ spec:
         mountPath: "/var/run/secrets/nais.io/vault"
 
   ingresses:
-    - "https://oebs-fullmakt-dev.dev.intern.nav.no"
+    - "https://oebs-fullmakt-godkjenning-api-q1.dev.intern.nav.no"
