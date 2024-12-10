@@ -1,7 +1,7 @@
 apiVersion: nais.io/v1alpha1
 kind: Application
 metadata:
-  name: oebs-fullmakt-dev
+  name: oebs-fullmakt-godkjenning-api-t1
   namespace: team-oebs
   labels:
     team: team-oebs
