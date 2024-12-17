@@ -52,11 +52,11 @@ public class FullmaktService extends ObjektMaps {
         ResponseEntity<String> response = restTemplate.exchange(uriBuilder.toUriString(), HttpMethod.GET, entity, String.class);
 
         if (response.getStatusCode() == HttpStatus.OK) {
-            logger.info("200 OK: {}", response.getBody());
+            // logger.info("200 OK");
             return response.getBody();
         } else {
-            logger.info("{}", response.getStatusCode());
-            return "request failet";
+            //logger.info("{}", response.getStatusCode());
+            return response.getStatusCode().toString();
         }
     }
 }
