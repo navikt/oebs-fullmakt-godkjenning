@@ -15,6 +15,7 @@
 
     <properties>
         <java.version>21</java.version>
+
         <jakarta-servlet.version>6.0.0</jakarta-servlet.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -152,7 +153,7 @@
                 <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
-                    <!--<version>${sonar-maven-plugin.version}</version>-->
+                    <version>${sonar-maven-plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -165,9 +166,6 @@
                     <profiles>
                         <profile>local</profile>
                     </profiles>
-                    <jvmArguments>
-                        <!-- -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005 -->
-                    </jvmArguments>
                 </configuration>
             </plugin>
         </plugins>
