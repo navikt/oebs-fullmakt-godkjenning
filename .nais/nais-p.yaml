@@ -22,11 +22,10 @@ spec:
     timeout: 11
   resources:
     requests:
-      cpu: 400m
-      memory: 1024Mi
+      cpu: 50m
+      memory: 416Mi
     limits:
-      cpu: 1000m
-      memory: 2048Mi
+      memory: 416Mi
   azure:
     application:
       enabled: true
