@@ -138,13 +138,6 @@ public class HttpLoggingFilter extends OncePerRequestFilter {
 		return builder.toString();
 	}
 
-	private String formatResponseFullmakt(HttpServletResponse response) {
-		StringBuilder builder = new StringBuilder();
-
-		formatBody(builder, response);
-
-		return builder.toString();
-	}
 	private void formatStatus(StringBuilder builder, HttpServletResponse response) {
 		HttpStatus httpStatus = HttpStatus.valueOf(response.getStatus());
 		builder.append("HTTP ").append(httpStatus.value()).append(' ').append(httpStatus.getReasonPhrase()).append('\n');

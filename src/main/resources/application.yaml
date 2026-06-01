@@ -3,10 +3,15 @@ server:
   port: 8080
 
 spring:
+  application:
+    name: ${NAIS_APP_NAME}
   profiles:
      active: nais
   datasource:
     driver-class-name: oracle.jdbc.OracleDriver
+    username: ${OEBS_USERNAME}
+    password: ${OEBS_PASSWORD}
+    url: ${OEBS_URL}
   jpa:
     hibernate:
       ddl-auto: none
@@ -19,6 +24,15 @@ spring:
         dialect: org.hibernate.dialect.OracleDialect
     show-sql: false
     open-in-view: false
+
+no.nav.security.jwt:
+  issuer:
+    azure:
+      accepted_audience: ${AZURE_APP_CLIENT_ID}
+      discoveryurl:  ${AZURE_APP_WELL_KNOWN_URL}
+      proxyurl: http://webproxy-nais.nav.no:8088
+
+url: ${FULLMAKTSREGISTER_URL}
 
 management:
   endpoints:
@@ -33,3 +47,8 @@ springdoc:
   swagger-ui:
     disable-swagger-default-url: true
     tags-sorter: alpha
+
+oebs:
+  environment: ${OEBS_ENVIRONMENT}
+  version: 1.0.0
+  date: 01.06.2026
