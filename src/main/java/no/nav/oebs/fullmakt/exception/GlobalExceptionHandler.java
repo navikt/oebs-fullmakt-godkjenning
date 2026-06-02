@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
@@ -22,7 +21,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 
     @ExceptionHandler({ HttpClientErrorException.class })
-    public ResponseEntity<Object> handleHttpClientErrorException(HttpClientErrorException ex, WebRequest request) {
+    public ResponseEntity<Object> handleHttpClientErrorException(HttpClientErrorException ex) {
 
         List<String> details = new ArrayList<String>();
         details.add(ex.getLocalizedMessage());
@@ -35,8 +34,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     // handleMethodArgumentTypeMismatch : triggers when a parameter's type does not match
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    protected ResponseEntity<Object> handleMethodArgumentTypeMismatch(MethodArgumentTypeMismatchException ex,
-                                                                      WebRequest request) {
+    protected ResponseEntity<Object> handleMethodArgumentTypeMismatch(MethodArgumentTypeMismatchException ex) {
         List<String> details = new ArrayList<String>();
         details.add(ex.getMessage());
 
@@ -47,7 +45,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     // handleConstraintViolationException : triggers when @Validated fails
     @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<?> handleConstraintViolationException(Exception ex, WebRequest request) {
+    public ResponseEntity<?> handleConstraintViolationException(Exception ex) {
 
         List<String> details = new ArrayList<String>();
         details.add(ex.getMessage());
@@ -58,7 +56,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler({ Exception.class })
-    public ResponseEntity<Object> handleAll(Exception ex, WebRequest request) {
+    public ResponseEntity<Object> handleAll(Exception ex) {
 
         List<String> details = new ArrayList<String>();
         details.add(ex.getLocalizedMessage());
