@@ -3,12 +3,9 @@ package no.nav.oebs.fullmakt.api;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
-import no.nav.oebs.fullmakt.Application;
 import no.nav.oebs.fullmakt.config.FullmaktSwagger;
 import no.nav.oebs.fullmakt.config.SwaggerConfig;
 import no.nav.oebs.fullmakt.service.FullmaktService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "/api/v1", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
 @Tag(name = SwaggerConfig.FULLMAKT, description = "Fullmakt API")
 public class FullmaktController {
-    private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
     private final FullmaktService fullmaktservice;
     public FullmaktController(FullmaktService fullmaktservice) {
@@ -37,7 +33,6 @@ public class FullmaktController {
             @RequestParam(name = "minBelopsgrense", required = false)
             @Parameter(description = "f.eks. 25000") Integer minBelopsgrense,
             @RequestHeader(name = "Authorization") String authorizationHeader) {
-        // Fulmakter hentes fra Fullmaktregister
         return fullmaktservice.hentFullmaktService(segmentverdi, segment, minBelopsgrense, authorizationHeader);
     }
 }

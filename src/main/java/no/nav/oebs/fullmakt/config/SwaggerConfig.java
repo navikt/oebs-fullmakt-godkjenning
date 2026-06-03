@@ -1,9 +1,7 @@
 package no.nav.oebs.fullmakt.config;
 
-import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,8 +20,6 @@ public class SwaggerConfig {
 
 	@Value("${oebs.version}")
 	String versjon;
-
-	public static final String BEARER_TOKEN_AUTH = "BearerToken";
 
 @Bean
 	public OpenAPI apiInfo() {
