@@ -36,7 +36,7 @@ public class FullmaktService {
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
-        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(url)
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromUriString(url)
                 .queryParamIfPresent("segmentverdi", Optional.ofNullable(segmentverdi))
                 .queryParamIfPresent("segment", Optional.ofNullable(segment))
                 .queryParamIfPresent("minBelopsgrense", Optional.ofNullable(minBelopsgrense));
