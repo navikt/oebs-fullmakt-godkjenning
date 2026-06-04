@@ -27,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class HttpLoggingFilter extends OncePerRequestFilter {
 
-	private final KallLoggRepository kallLoggRepository;
+	private KallLoggRepository kallLoggRepository;
 
 	public HttpLoggingFilter(KallLoggRepository kallLoggRepository) {
 		this.kallLoggRepository = kallLoggRepository;
@@ -56,10 +56,10 @@ public class HttpLoggingFilter extends OncePerRequestFilter {
 
 			long endTime = System.currentTimeMillis();
 
-			String korrelId =  MdcOperations.get(MdcOperations.MDC_CORRELATION_ID);
+			String korrel_id =  MdcOperations.get(MdcOperations.MDC_CORRELATION_ID);
 
 			KallLogg kallLogg = KallLogg.builder() //
-					.korrelasjonId(korrelId) //
+					.korrelasjonId(korrel_id) //
 					.tidspunkt(LocalDateTime.now()) //
 					.type(KallLogg.TYPE_REST) //
 					.kallRetning(KallLogg.RETNING_INN) //
@@ -178,8 +178,7 @@ public class HttpLoggingFilter extends OncePerRequestFilter {
 
 	private void formatHeaders(StringBuilder builder, HttpHeaders headers) {
 		for (Map.Entry<String, List<String>> entry : headers.headerSet()) {
-			builder.append(entry.getKey())
-					.append(": ");
+			builder.append(entry.getKey() + ": ");
 
 			List<String> values = entry.getValue();
 

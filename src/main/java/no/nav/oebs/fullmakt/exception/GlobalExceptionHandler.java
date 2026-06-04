@@ -23,7 +23,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler({ HttpClientErrorException.class })
     public ResponseEntity<Object> handleHttpClientErrorException(HttpClientErrorException ex) {
 
-        List<String> details = new ArrayList<>();
+        List<String> details = new ArrayList<String>();
         details.add(ex.getLocalizedMessage());
 
         ApiError err = new ApiError(LocalDateTime.now(),HttpStatus.UNAUTHORIZED, "Feil 401: Ugyldig Aksess token" ,details);
@@ -35,7 +35,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     // handleMethodArgumentTypeMismatch : triggers when a parameter's type does not match
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     protected ResponseEntity<Object> handleMethodArgumentTypeMismatch(MethodArgumentTypeMismatchException ex) {
-        List<String> details = new ArrayList<>();
+        List<String> details = new ArrayList<String>();
         details.add(ex.getMessage());
 
         ApiError err = new ApiError(LocalDateTime.now(),HttpStatus.BAD_REQUEST, "Mismatch Type" ,details);
@@ -45,9 +45,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     // handleConstraintViolationException : triggers when @Validated fails
     @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<Object> handleConstraintViolationException(Exception ex) {
+    public ResponseEntity<?> handleConstraintViolationException(Exception ex) {
 
-        List<String> details = new ArrayList<>();
+        List<String> details = new ArrayList<String>();
         details.add(ex.getMessage());
 
         ApiError err = new ApiError(LocalDateTime.now(),HttpStatus.BAD_REQUEST, "Constraint Violation" ,details);
@@ -58,7 +58,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler({ Exception.class })
     public ResponseEntity<Object> handleAll(Exception ex) {
 
-        List<String> details = new ArrayList<>();
+        List<String> details = new ArrayList<String>();
         details.add(ex.getLocalizedMessage());
 
         ApiError err = new ApiError(LocalDateTime.now(),HttpStatus.BAD_REQUEST, "Feil parametere" ,details);
