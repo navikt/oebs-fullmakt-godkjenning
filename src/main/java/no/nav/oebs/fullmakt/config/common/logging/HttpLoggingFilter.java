@@ -40,7 +40,7 @@ public class HttpLoggingFilter extends OncePerRequestFilter {
 
 		HttpServletRequest requestToUse = request;
 		if (!(request instanceof ContentCachingRequestWrapper)) {
-			requestToUse = new ContentCachingRequestWrapper(request);
+			requestToUse = new ContentCachingRequestWrapper(request, -1);
 		}
 
 		HttpServletResponse responseToUse = response;
@@ -177,7 +177,7 @@ public class HttpLoggingFilter extends OncePerRequestFilter {
 	}
 
 	private void formatHeaders(StringBuilder builder, HttpHeaders headers) {
-		for (Map.Entry<String, List<String>> entry : headers.entrySet()) {
+		for (Map.Entry<String, List<String>> entry : headers.headerSet()) {
 			builder.append(entry.getKey() + ": ");
 
 			List<String> values = entry.getValue();
