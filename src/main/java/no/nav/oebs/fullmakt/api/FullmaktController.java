@@ -25,7 +25,7 @@ public class FullmaktController {
     @GetMapping(path = "/fullmakt")
     @FullmaktSwagger
     public String hentFullmakter(
-            @RequestParam(name = "org_id", defaultValue = "202") Integer org_id,
+            @RequestParam(name = "org_id", defaultValue = "202") Integer orgid,
             @RequestParam(name = "segmentverdi", required = false)
             @Parameter(description = "f.eks. 159101") String segmentverdi,
             @RequestParam(name = "segment", required = false)
