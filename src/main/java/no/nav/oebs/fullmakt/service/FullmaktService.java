@@ -1,10 +1,6 @@
 package no.nav.oebs.fullmakt.service;
 
 import lombok.extern.slf4j.Slf4j;
-import no.nav.oebs.fullmakt.Application;
-import no.nav.oebs.fullmakt.utils.ObjektMaps;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -18,14 +14,10 @@ import java.util.Optional;
 @Slf4j
 @Service
 @Transactional(noRollbackFor = { Exception.class })
-public class FullmaktService extends ObjektMaps {
-    private static final Logger logger = LoggerFactory.getLogger(Application.class);
+public class FullmaktService {
 
     @Value("${url}")
     String url;
-
-    @Value("${request}")
-    String request;
 
     public String hentFullmaktService(String segmentverdi, String segment,
                                Integer minBelopsgrense, String token) //
@@ -52,10 +44,8 @@ public class FullmaktService extends ObjektMaps {
         ResponseEntity<String> response = restTemplate.exchange(uriBuilder.toUriString(), HttpMethod.GET, entity, String.class);
 
         if (response.getStatusCode() == HttpStatus.OK) {
-            // logger.info("200 OK");
             return response.getBody();
         } else {
-            //logger.info("{}", response.getStatusCode());
             return response.getStatusCode().toString();
         }
     }

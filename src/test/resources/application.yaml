@@ -1,0 +1,33 @@
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: oebs-fullmakt-godkjenning-api
+  profiles:
+     active: nais
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: test_user
+    password: test_password
+    url: jdbc:oracle:thin:@localhost:1521:testdb
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      jakarta:
+        persistence:
+          sharedCache:
+            mode: UNSPECIFIED
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect
+    show-sql: false
+    open-in-view: false
+
+url: mocked-url
+
+oebs:
+  environment: OEBSP
+  version: 1.0.0
+  date: 01.06.2026
