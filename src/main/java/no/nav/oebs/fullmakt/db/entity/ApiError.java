@@ -16,5 +16,5 @@ public class ApiError {
     private LocalDateTime timestamp;
     private HttpStatus status;
     private String message;
-    private List<String> errors;
+    private List errors;
 }
