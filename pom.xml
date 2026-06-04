@@ -31,7 +31,7 @@
         <logstash-logback-encoder.version>9.0</logstash-logback-encoder.version>
         <sonar-maven-plugin.version>3.9.1.2184</sonar-maven-plugin.version>
         <springdoc-openapi-starter-webmvc-ui.version>2.7.0</springdoc-openapi-starter-webmvc-ui.version>
-        <jetty-reactive-httpclient.version>4.0.8</jetty-reactive-httpclient.version>
+        <jetty-reactive-httpclient.version>4.1.4</jetty-reactive-httpclient.version>
         <lombok.version>1.18.46</lombok.version>
 
     </properties>
