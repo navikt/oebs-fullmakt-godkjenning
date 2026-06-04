@@ -11,6 +11,12 @@ spec:
 
   envFrom:
     - secret: oebs-fullmakt-godkjenning-t1
+
+  observability:
+    autoInstrumentation:
+      enabled: true
+      runtime: java
+
   replicas:
     min: 1
     max: 1
