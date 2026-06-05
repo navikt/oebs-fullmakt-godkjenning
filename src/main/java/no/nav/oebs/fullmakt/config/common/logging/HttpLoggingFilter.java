@@ -27,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class HttpLoggingFilter extends OncePerRequestFilter {
 
-	private KallLoggRepository kallLoggRepository;
+	private final KallLoggRepository kallLoggRepository;
 
 	public HttpLoggingFilter(KallLoggRepository kallLoggRepository) {
 		this.kallLoggRepository = kallLoggRepository;
@@ -40,7 +40,7 @@ public class HttpLoggingFilter extends OncePerRequestFilter {
 
 		HttpServletRequest requestToUse = request;
 		if (!(request instanceof ContentCachingRequestWrapper)) {
-			requestToUse = new ContentCachingRequestWrapper(request);
+			requestToUse = new ContentCachingRequestWrapper(request, -1);
 		}
 
 		HttpServletResponse responseToUse = response;
@@ -56,10 +56,10 @@ public class HttpLoggingFilter extends OncePerRequestFilter {
 
 			long endTime = System.currentTimeMillis();
 
-			String korrel_id =  MdcOperations.get(MdcOperations.MDC_CORRELATION_ID);
+			String korrelId =  MdcOperations.get(MdcOperations.MDC_CORRELATION_ID);
 
 			KallLogg kallLogg = KallLogg.builder() //
-					.korrelasjonId(korrel_id) //
+					.korrelasjonId(korrelId) //
 					.tidspunkt(LocalDateTime.now()) //
 					.type(KallLogg.TYPE_REST) //
 					.kallRetning(KallLogg.RETNING_INN) //
@@ -177,8 +177,9 @@ public class HttpLoggingFilter extends OncePerRequestFilter {
 	}
 
 	private void formatHeaders(StringBuilder builder, HttpHeaders headers) {
-		for (Map.Entry<String, List<String>> entry : headers.entrySet()) {
-			builder.append(entry.getKey() + ": ");
+		for (Map.Entry<String, List<String>> entry : headers.headerSet()) {
+			builder.append(entry.getKey())
+					.append(": ");
 
 			List<String> values = entry.getValue();
 

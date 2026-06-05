@@ -214,7 +214,7 @@ class HttpLoggingFilterTest {
     @Test
     void doFilterInternal_shouldHandleAlreadyWrappedRequest() throws ServletException, IOException {
         MockHttpServletRequest mockRequest = new MockHttpServletRequest("GET", "/api/v1/fullmakt");
-        ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(mockRequest);
+        ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(mockRequest, -1);
         MockHttpServletResponse response = new MockHttpServletResponse();
 
         httpLoggingFilter.doFilterInternal(wrappedRequest, response, filterChain);
