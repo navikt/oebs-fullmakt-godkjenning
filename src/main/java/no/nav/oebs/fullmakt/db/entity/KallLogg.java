@@ -28,7 +28,7 @@ public class KallLogg {
 	public static final String TYPE_REST = "REST";
 	public static final String METHOD_POST = "POST";
 	@Id
-	@SequenceGenerator(name = "XXRTV_FULLMAKT_API_SEQ", sequenceName = "XXRTV_FULLMAKT_API_SEQ", allocationSize = 1)
+	@SequenceGenerator(name = "XXRTV_FULLMAKT_API_SEQ", schema = "APPS", sequenceName = "XXRTV_FULLMAKT_API_SEQ", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "XXRTV_FULLMAKT_API_SEQ")
 	@Column(name = "KALL_LOGG_ID")
 	private Long id;
