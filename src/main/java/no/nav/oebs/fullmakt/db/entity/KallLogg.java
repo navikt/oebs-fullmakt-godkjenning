@@ -18,7 +18,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Table(name = "XXRTV_FULLMAKT_API_LOGG")
+@Table(name = "XXRTV_FULLMAKT_API_LOGG", schema = "XXRTV")
 public class KallLogg {
 
 	public static final String RETNING_INN = "INN";
